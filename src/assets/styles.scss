@@ -1,5 +1,9 @@
 $font-stack: Helvetica Neue, Helvetica, Arial, sans-serif;
 
+$warningColor: #f00;
+$moderateColor: #f40;
+$validColor: #080;
+
 * {
   margin: 0;
   padding: 0;
@@ -78,5 +82,86 @@ ul.password_check {
   li {
     font-size: 12px;
     line-height: 16px;
+  }
+}
+
+.not_passed {
+  &:before {
+    content: "\00D7";
+    width: 10px;
+    color: $warningColor;
+  }
+}
+
+.passed {
+  &:before {
+    content: "\2713";
+    width: 10px;
+    color: $validColor;
+  }
+}
+
+.strength_container {
+  .hidden {
+    display: none;
+  }
+
+  .live {
+    display: block;
+  }
+}
+
+#password-strength-bar-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 22px;
+}
+
+.password-strength-bar {
+  height: 4px;
+  background-color: #eee;
+  width: 100%;
+  position: absolute;
+  left: 0px;
+}
+
+.password-strength-bar-2 {
+  height: 4px;
+  width: 2px;
+  background-color: #fff;
+  position: absolute;
+  left: 33.33%;
+}
+
+.password-strength-bar-3 {
+  height: 4px;
+  width: 2px;
+  background-color: #fff;
+  position: absolute;
+  left: 66.66%;
+}
+
+.password-strength-bar-color {
+  height: 4px;
+  position: absolute;
+  left: 0;
+  &[data-score="0"] {
+    width: 0%;
+    background-color: $warningColor;
+  }
+
+  &[data-score="1"] {
+    width: 33.33%;
+    background-color: $warningColor;
+  }
+
+  &[data-score="2"] {
+    width: 66.66%;
+    background-color: $moderateColor;
+  }
+
+  &[data-score="3"] {
+    width: 100%;
+    background-color: $validColor;
   }
 }
