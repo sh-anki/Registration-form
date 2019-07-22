@@ -23,6 +23,7 @@ const RegistrationForm = props => {
           )}
           <input
             type="text"
+            className="input-email"
             name="email"
             value={email}
             placeholder="Email"
@@ -35,6 +36,7 @@ const RegistrationForm = props => {
 
           <input
             type="password"
+            className="input-pwd"
             name="password"
             value={password}
             placeholder="Password"

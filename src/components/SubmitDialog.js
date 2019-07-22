@@ -8,7 +8,7 @@ const SubmitDialog = ({ handleClose }) => {
           <h4>Thank You for Registering.</h4>
         </div>
 
-        <button onClick={handleClose}>close</button>
+        <button className="close-dialog" onClick={handleClose}>close</button>
       </section>
     </div>
   );

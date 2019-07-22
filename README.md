@@ -1,3 +1,15 @@
+This is a React based Registration form App that contains two inputs Email and Password, a Submit Button and some labels.
+
+It allows the Password with:
+1.) 8+ Characters
+2.) Atleast one Special Char
+3.) 2+ rating from zxcvbn password rating algorithm
+
+It also displays a strength bar that changes the color dynamically based on how strong or weak the password is.
+
+<----------------------------------------------------------------------------------------->
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

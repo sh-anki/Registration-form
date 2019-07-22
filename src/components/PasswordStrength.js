@@ -6,16 +6,32 @@ const PasswordStrength = ({ isPwdValid }) => {
   let isScoreValid = isPwdValid["_score"] > 2 ? "passed" : "not-passed";
 
   let count = 0;
-
+  
   for (let key in isPwdValid) {
     if (isPwdValid.hasOwnProperty(key)) {
       if (key !== "_score" && isPwdValid[key]) {
         count++;
       } else if (isPwdValid[key] > 2) {
-        count++;
+        count++;        
       }
     }
   }
+
+  const strengthTxt = (count) => {
+    switch (count) {
+      case 0:
+        return 'Invalid';
+      case 1:
+        return 'Weak';
+      case 2:
+        return 'Moderate';
+      case 3:
+        return 'Strong';      
+      default:
+        return 'Weak';
+    }
+  }
+  
 
   return (
     <div className="strength-container">
@@ -23,8 +39,9 @@ const PasswordStrength = ({ isPwdValid }) => {
         <div className="password-strength-bar" />
         <div className="password-strength-bar-color" data-score={count} />
         <div className="password-strength-bar-2" />
-        <div className="password-strength-bar-3" />
+        <div className="password-strength-bar-3" />        
       </div>
+      <p className="strength-text">Strength: {strengthTxt(count)}</p>
       <div>
         <h5>A good password is:</h5>
         <ul className="password-check">
