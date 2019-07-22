@@ -13,10 +13,6 @@ $validColor: #080;
   -o-box-sizing: border-box;
 }
 
-body {
-  font-family: $font-stack;
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -27,7 +23,7 @@ body {
 }
 
 body {
-  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-family: $font-stack;
 }
 
 .signup_wrapper {
@@ -48,26 +44,43 @@ body {
 
 label {
   margin-bottom: 5px;
-  display: block;
+  display: inline-block;
 }
 
-input[type="email"],
+input[type="text"],
 input[type="password"] {
   width: 100%;
   display: block;
   margin-bottom: 20px;
   height: 40px;
   padding-left: 2px;
+
+  &[data-error="true"] {
+    background-color: #fee;
+    border: 1px solid $warningColor;
+    outline: none;
+  }
+}
+
+.error {
+  float: right;
+  color: $warningColor;
 }
 
 input[type="submit"] {
-  @extend input[type="email"];
+  @extend input[type="text"];
   width: 278px;
   background-color: #000;
   color: #fff;
   border: none;
+  cursor: pointer;
   position: absolute;
   bottom: 0;
+
+  &:disabled {
+    background-color: grey;
+    cursor: default;
+  }
 }
 
 .strength_container {
@@ -163,5 +176,40 @@ ul.password_check {
   &[data-score="3"] {
     width: 100%;
     background-color: $validColor;
+  }
+}
+
+.dialog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.dialog-wrapper {
+  position: fixed;
+  background: rgba(255, 255, 255, 0.9);
+  width: 80%;
+  height: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  .dialog-content {
+    margin: 20px;
+  }
+}
+
+.dialog-wrapper {
+  button {
+    margin-left: 40%;
+    margin-bottom: 20px;
+    background: black;
+    color: #fff;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
   }
 }
