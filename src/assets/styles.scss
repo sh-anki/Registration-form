@@ -26,7 +26,7 @@ body {
   font-family: $font-stack;
 }
 
-.signup_wrapper {
+.signup-wrapper {
   width: 320px;
   height: 420px;
   background: #fff;
@@ -38,7 +38,7 @@ body {
   transform: translate(-50%, -50%);
 }
 
-.signup_container {
+.signup-container {
   padding: 30px 20px;
 }
 
@@ -83,13 +83,13 @@ input[type="submit"] {
   }
 }
 
-.strength_container {
+.strength-container {
   h5 {
     margin-bottom: 1px;
   }
 }
 
-ul.password_check {
+ul.password-check {
   list-style: none;
   padding-left: 0px;
   li {
@@ -98,7 +98,7 @@ ul.password_check {
   }
 }
 
-.not_passed {
+.not-passed {
   &:before {
     content: "\00D7";
     width: 10px;
@@ -114,7 +114,7 @@ ul.password_check {
   }
 }
 
-.strength_container {
+.strength-container {
   .hidden {
     display: none;
   }

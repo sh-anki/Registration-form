@@ -9,7 +9,7 @@ const validEmailRegex = RegExp(
   /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
 );
 
-const specialCharReg = RegExp(/(_|[^\w\d])/);
+const specialCharRegex = RegExp(/(_|[^\w\d])/);
 
 const validateForm = errors => {
   let valid = true;
@@ -54,7 +54,7 @@ class App extends Component {
         pwdValidation = { ...pwdParms };
 
         errors.password =
-          value.length < 8 || !specialCharReg.test(value)
+          value.length < 8 || !specialCharRegex.test(value)
             ? "Invalid password"
             : "";
         break;
@@ -62,7 +62,11 @@ class App extends Component {
         break;
     }
     this.setState({ errors, [name]: value, pwdValidation });
-    if (validateForm(this.state.errors)) {
+    if (
+      this.state.email !== "" &&
+      this.state.password !== "" &&
+      validateForm(this.state.errors)
+    ) {
       this.setState({ enableSubmitButton: true });
     } else {
       this.setState({ enableSubmitButton: false });
@@ -70,10 +74,9 @@ class App extends Component {
   };
 
   passwordHelper = pwd => {
-    const specialCharReg = RegExp(/(_|[^\w\d])/);
     const _score = zxcvbn(pwd).score;
     const charsCount = pwd.length > 8;
-    const specialChar = specialCharReg.test(pwd);
+    const specialChar = specialCharRegex.test(pwd);
     return { _score, charsCount, specialChar };
   };
 
@@ -83,7 +86,6 @@ class App extends Component {
   };
 
   hideDialog = () => {
-    console.log("hello");
     this.setState(this.defaultState);
   };
 
@@ -97,7 +99,7 @@ class App extends Component {
       showDialog
     } = this.state;
     return (
-      <div className="signup_wrapper">
+      <div className="signup-wrapper">
         <RegistrationForm
           onSubmit={this.handleSubmit}
           onChange={this.handleChange}

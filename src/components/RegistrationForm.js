@@ -13,12 +13,11 @@ const RegistrationForm = props => {
     pwdValidation,
     enableSubmitButton
   } = props;
-  console.log("PROPS", props);
   return (
-    <div className="signup_container">
+    <div className="signup-container">
       <form onSubmit={onSubmit} onChange={onChange}>
-        <div className="input_field">
-          <label for="email">Email</label>
+        <div className="input-field">
+          <label htmlFor="email">Email</label>
           {errors.email.length > 0 && (
             <span className="error">{errors.email}</span>
           )}
@@ -28,11 +27,11 @@ const RegistrationForm = props => {
             value={email}
             placeholder="Email"
             onChange={handleChange}
-            data-error={errors.email ? true : false}
+            data-error={errors.email ? true : false}            
           />
         </div>
-        <div className="input_field">
-          <label for="password">Password</label>
+        <div className="input-field">
+          <label htmlFor="password">Password</label>
 
           <input
             type="password"

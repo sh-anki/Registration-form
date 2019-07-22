@@ -1,8 +1,6 @@
 import React from "react";
 
-const SubmitDialog = ({ handleClose }) => {
-  //let showHideClassName = show ? "modal display-block" : "modal display-none";
-
+const SubmitDialog = ({ handleClose }) => {  
   return (
     <div className="dialog live">
       <section className="dialog-wrapper">
